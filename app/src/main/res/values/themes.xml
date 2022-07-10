@@ -32,7 +32,7 @@
         <item name="height">60dp</item>
     </style>
 
-    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:padding">@dimen/item_padding</item>
         <item name="textAllCaps">false</item>
         <item name="android:textSize">16sp</item>

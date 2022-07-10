@@ -1,26 +1,32 @@
 package com.monk.chatmonk.activities
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.monk.chatmonk.databinding.ActivityMainBinding
-import com.google.android.gms.tasks.OnCompleteListener
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.monk.chatmonk.R
+import com.monk.chatmonk.adapters.LoginSignUpViewPagerAdapter
+import com.monk.chatmonk.databinding.ActivityLoginBinding
+import com.monk.chatmonk.fragments.LoginFragment
+import com.monk.chatmonk.fragments.SignUpFragment
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity()  {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityLoginBinding
+    lateinit var viewPager : ViewPager2
+    var fragmentList = ArrayList<Fragment>()
+    lateinit var viewPagerAdapter: LoginSignUpViewPagerAdapter
 
-    //Firebaes AUthtication
+    //Firebase AUthtication
     private lateinit var firebaseAuth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         binding.apply {
             setContentView(root)
         }
@@ -28,9 +34,14 @@ class LoginActivity : AppCompatActivity() {
         //Initialize authticator
 
         firebaseAuth = Firebase.auth
-        binding.loginButton.setOnClickListener {
-            loginValidation()
-        }
+
+        viewPager = binding.loginViewPager
+        fragmentList.add(LoginFragment.newInstance())
+        fragmentList.add(SignUpFragment.newInstance())
+        viewPagerAdapter = LoginSignUpViewPagerAdapter(fragmentList, this)
+        viewPager.isUserInputEnabled = false
+        viewPager.adapter = viewPagerAdapter
+
 
     }
 
@@ -44,29 +55,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginValidation() {
-        if (binding.userName.text.isNullOrEmpty()){
-            binding.userName.error = "Enter username"
-            return
-        }
-        if (binding.password.text.isNullOrEmpty()){
-            binding.password.error = "Enter password"
-            return
-        }
-        val username = binding.userName.text!!.toString()
-        val password = binding.password.text!!.toString()
-        firebaseLogin(username, password)
-    }
-
-    private fun firebaseLogin(username: String, password: String) {
-        firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this, OnCompleteListener { task ->
-        if(task.isSuccessful){
-            val currentUser = firebaseAuth.currentUser;
-            startMainPage(currentUser!!)
-        }
-
-        })
-    }
 
     private fun startMainPage(currentUser: FirebaseUser) {
         val intent = Intent(this, ParentActivity::class.java)

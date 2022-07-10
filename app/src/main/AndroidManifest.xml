@@ -14,10 +14,16 @@
         android:theme="@style/Theme.ChatMonk"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BaseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ParentActivity"
             android:exported="false" />
         <activity
-            android:name="com.monk.chatmonk.activities.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

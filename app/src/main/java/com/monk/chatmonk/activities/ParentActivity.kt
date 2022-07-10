@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.monk.chatmonk.databinding.ActivityParentBinding
 
-class ParentActivity : AppCompatActivity() {
+class ParentActivity : BaseActivity() {
 
     lateinit var binder: ActivityParentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
