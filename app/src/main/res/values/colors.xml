@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="amaranth_red">#D62828</color>
+    <color name="persian_plum">#721121</color>
+    <color name="fire_opal">#F15156</color>
+    <color name="turquoise">#51F1EC</color>
+    <color name="topaz">#ffc07f</color>
+    <color name="french_blue">#7FBEFF</color>
+ <color name="white">#FFFFFF</color>
+</resources>

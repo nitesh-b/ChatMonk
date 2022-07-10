@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160649769114",
+    "project_id": "chatmonk-a2664",
+    "storage_bucket": "chatmonk-a2664.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160649769114:android:20295921decc8ac7b12f23",
+        "android_client_info": {
+          "package_name": "com.monk.chatmonk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160649769114-r7u9mpfliuet312g18vojh21pfvajs62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX7GTRw3MOgUu8EpKN71_rTSuAuCMb3ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160649769114-r7u9mpfliuet312g18vojh21pfvajs62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

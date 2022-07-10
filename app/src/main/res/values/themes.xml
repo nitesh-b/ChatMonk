@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ChatMonk" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/amaranth_red</item>
+        <item name="colorPrimaryVariant">@color/fire_opal</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/turquoise</item>
+        <item name="colorSecondaryVariant">@color/topaz</item>
+        <item name="colorOnSecondary">@color/persian_plum</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <!--EditText style-->
+    <style name="EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:padding">@dimen/item_padding</item>
+        <item name="maxLines">1</item>
+        <item name="background">@drawable/background_edit_text</item>
+
+    </style>
+
+    <style name="PrimaryButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:padding">@dimen/item_padding</item>
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/fire_opal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="minHeight">60dp</item>
+        <item name="height">60dp</item>
+    </style>
+
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:padding">@dimen/item_padding</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/persian_plum</item>
+        <item name="minHeight">60dp</item>
+        <item name="background">@null</item>
+    </style>
+
+</resources>
