@@ -12,9 +12,9 @@ import com.google.firebase.auth.FirebaseUser
 import com.monk.chatmonk.R
 import com.monk.chatmonk.activities.ParentActivity
 import com.monk.chatmonk.databinding.FragmentLoginBinding
+import com.monk.chatmonk.interfaces.ItemClickListener
 
-class LoginFragment : Fragment() {
-
+class LoginFragment(var itemClickListener: ItemClickListener) : Fragment() {
     lateinit var binder: FragmentLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = LoginFragment()
+        fun newInstance(itemClickListener: ItemClickListener) = LoginFragment(itemClickListener)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
             loginValidation()
         }
         binder.signUpButton.setOnClickListener {
-            displaySignUpPage()
+            itemClickListener.onItemClick("SIGN_UP")
         }
 
     }

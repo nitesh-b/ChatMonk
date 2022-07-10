@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.monk.chatmonk.R
+import com.monk.chatmonk.activities.LoginActivity
+import com.monk.chatmonk.interfaces.ItemClickListener
 
-class SignUpFragment : Fragment() {
+class SignUpFragment(var itemClickListener: ItemClickListener) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,6 @@ class SignUpFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = SignUpFragment()
+        fun newInstance(itemClickListener: ItemClickListener) = SignUpFragment(itemClickListener)
     }
 }

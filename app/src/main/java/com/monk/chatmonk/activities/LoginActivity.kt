@@ -9,13 +9,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.monk.chatmonk.R
 import com.monk.chatmonk.adapters.LoginSignUpViewPagerAdapter
 import com.monk.chatmonk.databinding.ActivityLoginBinding
 import com.monk.chatmonk.fragments.LoginFragment
 import com.monk.chatmonk.fragments.SignUpFragment
+import com.monk.chatmonk.interfaces.ItemClickListener
 
-class LoginActivity : BaseActivity()  {
+class LoginActivity : BaseActivity(), ItemClickListener {
 
     lateinit var binding: ActivityLoginBinding
     lateinit var viewPager : ViewPager2
@@ -36,8 +36,8 @@ class LoginActivity : BaseActivity()  {
         firebaseAuth = Firebase.auth
 
         viewPager = binding.loginViewPager
-        fragmentList.add(LoginFragment.newInstance())
-        fragmentList.add(SignUpFragment.newInstance())
+        fragmentList.add(LoginFragment.newInstance(this))
+        fragmentList.add(SignUpFragment.newInstance(this))
         viewPagerAdapter = LoginSignUpViewPagerAdapter(fragmentList, this)
         viewPager.isUserInputEnabled = false
         viewPager.adapter = viewPagerAdapter
@@ -49,9 +49,19 @@ class LoginActivity : BaseActivity()  {
         super.onStart()
         val currentUser = firebaseAuth.currentUser
         currentUser?.let {
-            startMainPage(currentUser!!)
+            startMainPage(currentUser)
         } ?: run {
             //Show login screen and allow user to login
+        }
+    }
+
+    override fun onItemClick(item: Any) {
+        super.onItemClick(item)
+        if(item is String){
+            val stringRes = item
+            if(stringRes == "SIGN_UP"){
+                viewPager.currentItem = 1
+            }
         }
     }
 
