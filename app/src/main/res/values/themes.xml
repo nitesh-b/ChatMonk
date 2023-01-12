@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/topaz</item>
         <item name="colorOnSecondary">@color/persian_plum</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 
